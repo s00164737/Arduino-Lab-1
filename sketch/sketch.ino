@@ -26,18 +26,40 @@
   https://www.arduino.cc/en/Tutorial/BuiltInExamples/Blink
 */
 // the setup function runs once when you press reset or power the board
-int LED=2;      //initialise variable for LED to correspond with Digital Port 2
+int LED_1=1;      //initialize variable for LED to correspond with Digital Port 1
+int LED_2=2;      //initialise variable for LED to correspond with Digital Port 2
+
+
+//Custom variables
+const int DELAY_LENGTH = 500;
+
 void setup() {
   // initialize digital pin LED_BUILTIN as an output.
-  pinMode(LED, OUTPUT);
+  pinMode(LED_1, OUTPUT);
+  pinMode(LED_1, OUTPUT);
 }
 
 // the loop function runs over and over again forever
-void loop() {
-  digitalWrite(LED, HIGH);  // turn the LED on (HIGH is the voltage level)
-  delay(500);                      // wait for a second
-  digitalWrite(LED, LOW);   // turn the LED off by making the voltage LOW
-  delay(500);                      // wait for a second
+void loop() 
+{
+  blink_led1();
+  blink_led2();
+}
 
+//Method for blinking
+void blink_led2()
+{
+  digitalWrite(LED_2, HIGH);  // turn the LED on (HIGH is the voltage level)
+  delay(DELAY_LENGTH);                      // wait for a second
+  digitalWrite(LED_2, LOW);   // turn the LED off by making the voltage LOW
+  delay(DELAY_LENGTH);                      // wait for a second
+}
+
+void blink_led1()
+{
+  digitalWrite(LED_1, HIGH);  // turn the LED on (HIGH is the voltage level)
+  delay(DELAY_LENGTH);                      // wait for a second
+  digitalWrite(LED_1, LOW);   // turn the LED off by making the voltage LOW
+  delay(DELAY_LENGTH);                      // wait for a second
 }
 
